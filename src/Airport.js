@@ -1,14 +1,13 @@
 'use strict';
 
-function Airport(){this.planes = [];}
-
-
-
-// var weather = "sunny";
+function Airport(){
+  this.planes = []
+  this.capacity = 20
+}
 
 Airport.prototype.landPlane = function(plane) {
   var weather = this.checkWeather();
-  if (weather === "stormy") {
+  if ((weather === "stormy") || (this.planes.length >= this.capacity)) {
     return "cannot land";
   } else {
     this.planes.push(plane);
